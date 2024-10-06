@@ -1,26 +1,22 @@
-vector<int> twoSum(vector<int>& nums, int target) {
-    // Declare an unordered_map to store values of the array and their indices
-    unordered_map<int, int> numMap;
-    
-    // Get the size of the input vector nums
-    int n = nums.size();
+Problem Overview
 
-    // Loop through the nums array
-    for (int i = 0; i < n; i++) {
-        // Find the complement of the current number (target - current number)
-        int complement = target - nums[i];
+Given a sorted array nums and a target value target, return the index of target if it is present in the array. If not, return -1.
 
-        // Check if the complement exists in the map
-        if (numMap.count(complement)) {
-            // If complement is found, return the indices (current index and the complement's index)
-            return {numMap[complement], i};
-        }
+Input:
 
-        // Store the current number with its index in the map
-        numMap[nums[i]] = i;
-    }
-
-    // If no solution is found, return an empty vector
-return {};
+nums = [3, 4, 6, 7, 9, 12, 16, 17], target = 6
 
 
+Output:
+
+2
+
+
+Explanation:
+
+The target value 6 is present at index 2 in the array.
+
+
+
+
+---
