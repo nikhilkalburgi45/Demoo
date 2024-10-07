@@ -1,22 +1,34 @@
-Problem Overview
+# Linked List Reversal Using a Stack
 
-Given a sorted array nums and a target value target, return the index of target if it is present in the array. If not, return -1.
+## Introduction
 
-Input:
+In this example, we demonstrate how to reverse a linked list using a stack. The stack helps us store the node values of the list, and we then overwrite the original list in reverse order.
 
-nums = [3, 4, 6, 7, 9, 12, 16, 17], target = 6
+## Code
 
+```cpp
+void reverseList(Node* head) {
+    if (head == nullptr) {
+        return;
+    }
 
-Output:
+    stack<int> st;
+    Node* temp = head;
 
-2
+    // Push all data values of the linked list onto the stack
+    while (temp != nullptr) {
+        st.push(temp->data);
+        temp = temp->next;
+    }
 
+    temp = head;
 
-Explanation:
+    // Pop from the stack and update the linked list with reversed data
+    while (temp != nullptr) {
+        temp->data = st.top();
+        st.pop();
+        temp = temp->next;
+    }
 
-The target value 6 is present at index 2 in the array.
-
-
-
-
----
+    return head;
+}
